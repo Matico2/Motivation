@@ -6,23 +6,23 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.motivation.databinding.ActivityMainBinding
+import com.example.motivation.databinding.ActivityUserBinding
 
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener{
-    private lateinit var binding: ActivityMainBinding
+class UserActivity : AppCompatActivity(), View.OnClickListener{
+    private lateinit var binding: ActivityUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        binding.buttonNewPrhase.setOnClickListener(this)
+        binding.buttonSave.setOnClickListener(this)
     }
 
-    override fun onClick(view: View) {
-       if (view.id == R.id.button_new_prhase){
-        var s =""
-       }
+    override fun onClick(v: View) {
+        if (v.id == R.id.button_save){
+            var s =""
+        }
     }
 }
