@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.motivation.infra.MotivationConstants
 import com.example.motivation.R
+import com.example.motivation.data.Mock
 import com.example.motivation.infra.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
 
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.hide()
         handleUserName()
         handleFilter(R.id.image_all)
-
+        handleNextPhrase()
         //evrentos de click
         biding.buttonNewPrhase.setOnClickListener(this)
         biding.imageAll.setOnClickListener(this)
@@ -28,11 +29,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onClick(view: View) {
         if (view.id == R.id.button_new_prhase) {
-            var s = ""
+            handleNextPhrase()
         } else if (view.id in listOf(R.id.image_all, R.id.image_happy, R.id.image_sunny)){
             handleFilter(view.id)
         }
     }
+    private fun handleNextPhrase(){
+       val phrase= Mock().getPhrase(categotyId)
+        biding.textPhrase.text= phrase
+    }
+
     private fun handleFilter(id: Int) {
         biding.imageAll.setColorFilter(ContextCompat.getColor(this, R.color.dark_purple))
         biding.imageHappy.setColorFilter(ContextCompat.getColor(this, R.color.dark_purple))

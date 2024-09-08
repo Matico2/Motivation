@@ -52,8 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="a"
-        android:textSize="32dp" />
+        android:gravity="center"
+        android:textSize="28dp" />
 
     <ImageView
         android:id="@+id/image_line"
